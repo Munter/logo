@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 270">
+  <g>
+    <use href="parts/defs.svg#dancer" transform="translate(15.3,5)" />
+    <g transform="translate(0,210)">
+      <use href="parts/defs.svg#diku" />
+      <use href="parts/defs.svg#revy" transform="translate(25.5,30.5)" />
+    </g>
+  </g>
+</svg>
