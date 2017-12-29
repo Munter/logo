@@ -61,5 +61,33 @@ new AssetGraph({ root: 'src' })
   .loadAssets('*.svg')
   .populate()
   .includeSvgUseFragments()
+  .queue(function inlineFragments (assetGraph) {
+    const assets = assetGraph.findAssets({ type: 'Svg' });
+
+    assets.forEach(asset => {
+      const document = asset.parseTree;
+
+      asset.outgoingRelations.forEach(rel => {
+        if (rel.type === 'SvgUse' && rel.href.indexOf('#') === 0) {
+          const node = rel.node;
+          const attributes = Array.from(node.attributes).filter(n => n.name !== 'href');
+
+          const target = document.getElementById(node.getAttribute('href').replace('#', ''));
+
+          if (target) {
+            const clone = target.cloneNode(true);
+
+            attributes.forEach(a => clone.setAttribute(a.name, a.value));
+
+            node.parentNode.replaceChild(clone, node);
+          }
+        }
+      });
+
+      Array.from(document.getElementsByTagName('defs'))
+        .forEach(def => def.parentNode.removeChild(def));
+    });
+  })
+  .minifySvgAssetsWithSvgo()
   .writeAssetsToDisc({}, 'dist')
   .run();
