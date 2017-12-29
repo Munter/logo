@@ -1,0 +1,27 @@
+{
+  "name": "dikurevy-logo",
+  "version": "1.0.0",
+  "description": "Logo for Copenhagen University Computer Science (DIKU) Student Revue",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dikurevy/logo.git"
+  },
+  "keywords": [
+    "diku",
+    "revy",
+    "logo"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dikurevy/logo/issues"
+  },
+  "homepage": "https://github.com/dikurevy/logo#readme",
+  "devDependencies": {
+    "assetgraph": "^3.13.1"
+  }
+}
