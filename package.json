@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/dikurevy/logo#readme",
   "devDependencies": {
-    "assetgraph": "^3.13.1"
+    "assetgraph": "^3.13.1",
+    "svgo": "^1.0.3"
   }
 }
